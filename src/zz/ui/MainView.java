@@ -4,10 +4,18 @@ import com.zzpublic.zwing.Button;
 import com.zzpublic.zwing.Label;
 import com.zzpublic.zwing.TextField;
 import com.zzpublic.zwing.View;
+import zz.model.TodoItem;
+import zz.model.TodoList;
+import zz.service.TodoListService;
 
 import javax.swing.*;
+import java.util.LinkedList;
 
 public class MainView extends View {
+
+    // mark - service
+
+    private TodoListService todoListService = new TodoListService();
 
     // mark - views
 
@@ -18,11 +26,13 @@ public class MainView extends View {
 
     private static final int windowPadding = 24;
 
+    private Label titleLabel;
+
     @Override
     protected void initSubviews() {
         super.initSubviews();
 
-        Label titleLabel = new Label();
+        titleLabel = new Label();
         titleLabel.setLocation(paddingNormal, paddingNormal);
         titleLabel.setSize(this.getWidth() - 2 * paddingNormal, cellHeight);
         titleLabel.setText("");
@@ -45,5 +55,27 @@ public class MainView extends View {
         inputView.add(textField);
     }
 
+    @Override
+    protected void viewDidDisplay() {
+        super.viewDidDisplay();
+        dataToView();
+    }
 
+    private void dataToView() {
+        TodoList todoList = todoListService.get();
+
+        titleLabel.setText(todoList.getTitle());
+
+        int y = titleLabel.getY() + titleLabel.getHeight() + paddingNormal;
+
+        LinkedList<TodoItem> items = todoList.getItems();
+        for (TodoItem item : items) {
+            Label label = new Label();
+            label.setText(item.getText());
+            label.setLocation(paddingNormal, y);
+            label.setSize(this.getHeight() - 2 * paddingNormal, cellHeight);
+            this.add(label);
+            y += label.getHeight() + paddingNormal;
+        }
+    }
 }

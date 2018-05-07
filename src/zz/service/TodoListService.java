@@ -4,7 +4,12 @@ import zz.model.TodoItem;
 import zz.model.TodoList;
 
 public class TodoListService {
+
+    // in memory model
+
     private TodoList todoList;
+
+    // services
 
     public void add(TodoItem item){
         todoList.getItems().add(item);

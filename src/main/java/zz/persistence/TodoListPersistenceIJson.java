@@ -14,8 +14,6 @@ public class TodoListPersistenceIJson implements TodoListPersistence {
     public void save(TodoList todoList) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-
-
         String data = gson.toJson(todoList);
         System.out.println(data);
         try {

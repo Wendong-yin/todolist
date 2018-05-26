@@ -45,7 +45,7 @@ public class TodoListService {
         TodoList todoList = persistence.read();
         if(todoList == null){
             todoList = new TodoList();
-            todoList.setTitle("TO do");
+            todoList.setTitle("美貌大王的 Todo List");
             persistence.save(todoList);
 
         }

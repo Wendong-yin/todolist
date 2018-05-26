@@ -52,5 +52,30 @@ public class TodoListService {
         return todoList;
     }
 
+    // 删除过程先根据传入的String 查找，然后再删除
+    public TodoList delete (String name){
+        TodoList todoList = get();
+        int index = 0;
+        while (!todoList.getItems().get(index).getText().equals(name) && index +1 < todoList.getItems().size()){
+            index ++;
+        }
+        todoList.getItems().remove(index);
+        // ❤️ 先保存再返回
+        persistence.save(todoList);
+        return todoList;
+    }
+
+    // 修改
+    public TodoList modify (String oldname, String newname){
+        TodoList todoList = get();
+        int index = 0;
+        while (!todoList.getItems().get(index).getText().equals(oldname) && index +1 < todoList.getItems().size()){
+            index ++;
+        }
+        todoList.getItems().get(index).setText(newname);
+
+        persistence.save(todoList);
+        return todoList;
+    }
 
 }

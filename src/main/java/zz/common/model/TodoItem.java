@@ -1,4 +1,4 @@
-package zz.model;
+package zz.common.model;
 
 public class TodoItem {
     private String text;

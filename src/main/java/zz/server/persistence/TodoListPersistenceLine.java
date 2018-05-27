@@ -1,8 +1,8 @@
-package zz.persistence;
+package zz.server.persistence;
 
 import org.apache.commons.io.FileUtils;
-import zz.model.TodoItem;
-import zz.model.TodoList;
+import zz.common.model.TodoItem;
+import zz.common.model.TodoList;
 
 import java.io.File;
 import java.io.IOException;

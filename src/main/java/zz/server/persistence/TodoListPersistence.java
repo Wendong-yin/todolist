@@ -1,6 +1,6 @@
-package zz.persistence;
+package zz.server.persistence;
 
-import zz.model.TodoList;
+import zz.common.model.TodoList;
 
 public interface TodoListPersistence {
     void save(TodoList todoList);

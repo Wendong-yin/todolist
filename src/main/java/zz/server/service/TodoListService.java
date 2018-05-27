@@ -1,10 +1,9 @@
-package zz.service;
+package zz.server.service;
 
-import zz.model.TodoItem;
-import zz.model.TodoList;
-import zz.persistence.TodoListPersistence;
-import zz.persistence.TodoListPersistenceIJson;
-import zz.persistence.TodoListPersistenceLine;
+import zz.common.model.TodoItem;
+import zz.common.model.TodoList;
+import zz.server.persistence.TodoListPersistence;
+import zz.server.persistence.TodoListPersistenceIJson;
 
 public class TodoListService {
 

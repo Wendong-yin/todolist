@@ -1,10 +1,10 @@
-package zz;
+package zz.client;
 
 import com.zzpublic.zwing.ViewFlow;
 import com.zzpublic.zwing.Window;
-import zz.ui.MainView;
+import zz.client.ui.MainView;
 
-public class Driver {
+public class Client {
     public static void main(String[] args) {
         MainView mainView = new MainView();
         ViewFlow viewFlow = new ViewFlow();

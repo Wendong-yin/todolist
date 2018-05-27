@@ -1,4 +1,4 @@
-package zz.model;
+package zz.common.model;
 
 import java.util.LinkedList;
 

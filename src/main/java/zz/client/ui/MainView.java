@@ -6,7 +6,8 @@ import com.zzpublic.zwing.TextField;
 import com.zzpublic.zwing.View;
 import zz.common.model.TodoItem;
 import zz.common.model.TodoList;
-import zz.server.service.TodoListService;
+// ❤️ 从 server 修改成了 client 中的 servce
+import zz.client.service.TodoListService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

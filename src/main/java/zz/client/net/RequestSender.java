@@ -29,7 +29,14 @@ public class RequestSender {
         connector.writeLine(request.getAction());
         connector.writeLine(request.getData());
 
-        return null;
+        // 重建 response 对象
+        String status = connector.readLine();
+        String data = connector.readLine();
+
+        Response response = new Response();
+        response.setData(status);
+        response.setData(data);
+        return response;
 
     }
 }

@@ -22,6 +22,7 @@ public class Server {
         while (true) {
             Socket socket = null;
             try {
+                // 接收 Request
                 socket = serverSocket.accept();
                 System.out.println("socket connected");
             } catch (IOException e) {

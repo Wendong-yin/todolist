@@ -25,6 +25,9 @@ public class RequestHandler {
             new TodoListController().get(request,response);
         }
 
+        connector.writeLine(response.getStatus());
+        connector.writeLine(response.getData());
+
     }
 
 }

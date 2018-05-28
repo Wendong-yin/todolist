@@ -5,6 +5,7 @@ import zz.client.net.RequestSender;
 import zz.common.model.TodoItem;
 import zz.common.model.TodoList;
 import zz.common.net.Request;
+import zz.common.net.Response;
 import zz.server.persistence.TodoListPersistence;
 import zz.server.persistence.TodoListPersistenceIJson;
 
@@ -30,8 +31,11 @@ public class TodoListService {
         Request request = new Request();
         request.setAction("get");
 
-        new RequestSender().send(request);
-        return null;
+        Response response = new RequestSender().send(request);
+
+        String data = response.getData();
+        TodoList todoList = new Gson().fromJson(data, TodoList.class);
+        return todoList;
     }
 
 

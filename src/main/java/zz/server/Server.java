@@ -13,6 +13,7 @@ public class Server {
         try {
             serverSocket = new ServerSocket(9000);
         } catch (IOException e) {
+            // 如果别人专用这个端口，就中断了，不继续运行。
             e.printStackTrace();
             return;
         }
@@ -24,9 +25,9 @@ public class Server {
             try {
                 // 接收 Request
                 socket = serverSocket.accept();
-                System.out.println("socket connected");
             } catch (IOException e) {
                 e.printStackTrace();
+                // 如果失败了 继续连接
                 continue;
             }
 
@@ -34,8 +35,8 @@ public class Server {
 
             Connector connector = new Connector(socket);
             RequestHandler requestHandler = new RequestHandler();
+            // ❤️ Handler 真正收到了 Request
             requestHandler.handle(connector);
         }
     }
-    // zzpublic.com
 }

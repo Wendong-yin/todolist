@@ -7,7 +7,7 @@ import com.zzpublic.zwing.View;
 import zz.common.model.TodoItem;
 import zz.common.model.TodoList;
 // ❤️ 从 server 修改成了 client 中的 servce
-import zz.client.service.TodoListService;
+import zz.client.service.ClientService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +18,7 @@ public class MainView extends View {
 
     // mark - service
 
-    private TodoListService todoListService = new TodoListService();
+    private ClientService todoListService = new ClientService();
 
     // mark - views
 

@@ -1,14 +1,32 @@
 package zz.server.persistence;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
+import java.util.Properties;
 
 public class Database {
     public static Connection newConnection(){
-        String host = "zzdb.ce71fiwyeo85.us-east-2.rds.amazonaws.com";
-        String databaseName = "zzdb";
+//        String host = "zzdb.ce71fiwyeo85.us-east-2.rds.amazonaws.com";
+//        String databaseName = "zzdb";
+//        String url = "jdbc:postgresql://" + host + "/" + databaseName;
+//        String username = "wendong";
+//        String password = "Pingguo890";
+
+        Properties properties = new Properties();
+        InputStream stream = ClassLoader.getSystemResourceAsStream("server.properties");
+        try{
+            properties.load(stream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String host = properties.getProperty("database.host");
+        String databaseName = properties.getProperty("database.databaseName");
         String url = "jdbc:postgresql://" + host + "/" + databaseName;
-        String username = "wendong";
-        String password = "Pingguo890";
+        String username = properties.getProperty("database.username");
+        String password = properties.getProperty("database.password");
+
 
         try{
             return DriverManager.getConnection(url,username,password);

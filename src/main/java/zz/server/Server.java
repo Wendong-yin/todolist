@@ -11,7 +11,7 @@ public class Server {
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
         try {
-            serverSocket = new ServerSocket(9000);
+            serverSocket = new ServerSocket(9001);
         } catch (IOException e) {
             // 如果别人专用这个端口，就中断了，不继续运行。
             e.printStackTrace();

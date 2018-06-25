@@ -1,9 +1,16 @@
 package zz.common.net;
 
 public class Response {
+
+    public final static String success = "success";
+    public final static String failure = "failure";
+
     String status;
     String data;
 
+    public boolean isSuccess(){
+        return status.equals(success);
+    }
     public String getStatus() {
         return status;
     }

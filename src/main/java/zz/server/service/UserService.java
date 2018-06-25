@@ -23,7 +23,7 @@ public class UserService {
 
     public static void main(String[] args) {
         UserService userService = new UserService();
-        boolean registered = userService.register("Mary","12312");
+        boolean registered = userService.register("Mary244444","12312");
         System.out.println(registered);
     }
 }

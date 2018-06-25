@@ -1,7 +1,7 @@
 package zz.common.model;
 
 public class User {
-    private long id;
+    private Long id;
     private String username;
     private String password;
 

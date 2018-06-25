@@ -4,6 +4,7 @@ import com.zzpublic.socket.Connector;
 import zz.common.net.Request;
 import zz.common.net.Response;
 import zz.server.controller.TodoListController;
+import zz.server.controller.UserController;
 
 public class RequestHandler {
     public void handle(Connector connector){
@@ -25,6 +26,9 @@ public class RequestHandler {
             new TodoListController().add(request,response);
         }else if(action.equals("get")){
             new TodoListController().get(request,response);
+            // 新建用户
+        } else if (action.equals("user add")){
+            new UserController().add(request,response);
         }
 
         // 第4步：序列化和反序列化，
@@ -36,6 +40,7 @@ public class RequestHandler {
         connector.writeLine(response.getStatus());
         connector.writeLine(response.getData());
 
+        System.out.println("check point");
     }
 
 }

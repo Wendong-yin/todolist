@@ -39,7 +39,7 @@ public class RequestSender {
         String data = connector.readLine();
 
         Response response = new Response();
-        response.setData(status);
+        response.setStatus(status);
         response.setData(data);
 
         connector.close();
